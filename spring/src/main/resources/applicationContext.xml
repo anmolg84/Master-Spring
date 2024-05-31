@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--Definition of Beans-->
+    <!-- Scope : Singleton(Single Object Created for getBean()) and
+    Prototype (Different Object Created for each call for getBean()) -->
+    <!--Autowire Tag : @Autowire in XML-->
+    <!-- All Defined Beans objects are created -->
+    <bean id="dependencyXml" class="com.anmol.spring.learn.DependencyInjection"
+    scope="singleton" autowire="byName">
+        <!--Constructor Injection-->
+        <constructor-arg index="0" value="21"/>
+        <!--Setter Injection : Setting property values(primitive)/ref(Objects/Bean)-->
+        <property name="name" value="AnmolGupta"/>
+    </bean>
+    <!-- lazy-init-bean : Object is created only when bean is used-->
+    <bean id="annotationXml" class="com.anmol.spring.learn.Annotation" scope="prototype"
+    lazy-init="true"/>
+</beans>
